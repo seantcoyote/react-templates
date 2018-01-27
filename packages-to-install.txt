@@ -1,0 +1,11 @@
+--prod
+redux react-redux redux-thunk redux-query react-router-dom firebase isomorphic-fetch material-ui
+
+radium uuid
+
+-------------
+
+--dev
+redux-immutable-state-invariant standard eslint-plugin-standard
+
+storybook
