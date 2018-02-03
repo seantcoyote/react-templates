@@ -1,24 +1,22 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {object} from 'prop-types'
-// import {bindActionCreators} from 'redux'
-// import {connect} from 'react-redux'
-// import {withRouter} from 'react-router-dom'
-// import * as uiActions from '../../actions/uiActions'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import * as uiActions from '../../actions/uiActions'
+import NewComponent from '../../components/NewComponent'
 import defaultStyles from './styles'
 
-class NewContainer extends React.Component {
+class NewContainer extends Component {
   componentWillMount () {
-    const {styles} = this.props
-    console.log('styles:', styles)
+    console.log('NewContainer props:', this.props)
   }
 
   render () {
     const {styles} = this.props
 
     return (
-      <div style={{...defaultStyles.base, ...styles}}>
-        <p>NewContainer</p>
-      </div>
+      <NewComponent styles={styles} />
     )
   }
 }
@@ -27,15 +25,17 @@ NewContainer.propTypes = {
   styles: object
 }
 
-// const mapStateToProps = (state) => ({
-//   appInfo: state.appInfo
-// })
-//
-//
-// const mapDispatchToProps = (dispatch) => ({
-//   uiActions: bindActionCreators(uiActions, dispatch)
-// })
-//
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewContainer))
+const mapStateToProps = (state) => ({
+  appInfo: state.appInfo
+})
 
-export default NewContainer
+const mapDispatchToProps = (dispatch) => ({
+  uiActions: bindActionCreators(uiActions, dispatch)
+})
+
+const wrap = compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)
+
+export default wrap(NewContainer)
