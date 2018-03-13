@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {object} from 'prop-types'
-import {bindActionCreators} from 'redux'
+import {bindActionCreators, compose} from 'redux'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import * as uiActions from '../../actions/uiActions'

@@ -1,7 +1,7 @@
 --prod
 redux react-redux redux-thunk redux-query react-router-dom firebase material-ui
 
-radium uuid isomorphic-fetch
+radium uuid isomorphic-fetch d3
 
 -------------
 
